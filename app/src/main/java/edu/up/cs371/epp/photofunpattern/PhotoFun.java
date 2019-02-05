@@ -30,9 +30,9 @@ public class PhotoFun extends AppCompatActivity {
     private Bitmap myOriginalBmp;
     private ImageView myNewImageView;
 
-    public PhotoFun(ArrayList<Bitmap> myImageBmps) {
-        this.myImageBmps = myImageBmps;
-    }
+    //public PhotoFun(ArrayList<Bitmap> myImageBmps) {
+       // this.myImageBmps = myImageBmps;
+   // }
 
     /*
     * onCreate This constructor lays out the user interface, initializes the
@@ -47,6 +47,7 @@ public class PhotoFun extends AppCompatActivity {
 
         ImageView originalImageView =
                 (ImageView) findViewById(R.id.originalImage);
+        myOriginalView = originalImageView;
         BitmapDrawable originalDrawableBmp =
                 (BitmapDrawable) originalImageView.getDrawable();
         myOriginalBmp = originalDrawableBmp.getBitmap();
@@ -61,6 +62,13 @@ public class PhotoFun extends AppCompatActivity {
         westEdgeFilterButton.setOnClickListener
                 (new westEdgeFilterButtonListener());
         Spinner spinnerButton = (Spinner) findViewById(R.id.imageNames);
+
+
+            initSpinner();
+            initImageArray();
+            // initImageArray();
+            //spinnerButton
+       // spinnerButton.onItemSelected();
 
     }
 
