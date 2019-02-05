@@ -88,7 +88,7 @@ public class PhotoFun extends AppCompatActivity {
         }
     }
     //private Bitmap myOriginalBmp;
-    //private ImageView myOriginalView;
+    private ImageView myOriginalView;
     //private ImageView myNewImageView;
 
     private String[] myImageNames;
@@ -130,7 +130,7 @@ public class PhotoFun extends AppCompatActivity {
         public void onItemSelected(AdapterView<?> parentView,
                                    View selectedItemView,
                                    int position,
-                                   long id){
+                                   long id) {
             myOriginalView.setImageBitmap
                     (myImageBmps.get(position));
             BitmapDrawable originalDrawableBmp =
@@ -138,8 +138,11 @@ public class PhotoFun extends AppCompatActivity {
             myOriginalBmp = originalDrawableBmp.getBitmap();
         }
 
-        public void onNothingSelected(AdapterView<?> parentView){
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
 
         }
+    }
+
 }
 
