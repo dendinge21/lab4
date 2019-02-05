@@ -11,9 +11,8 @@ import android.graphics.Color;
  *  https://github.com/edcepp/PhotoFunPattern
  */
 
-public class BrightnessFilter extends PhotoFilter {
+public class WestEdgeFilter extends PhotoFilter {
 
-    private final int ADJUSTMENT = 100;
 
     /*
     * tranformPixel This method overrides the transformPixel in the parent
@@ -24,11 +23,12 @@ public class BrightnessFilter extends PhotoFilter {
     * @return a new Pixel in which each of the RGB components has been increased
     */
     public int transformPixel(int pixel1, int pixel2, int pixel3, int pixel4, int pixel5, int pixel6, int pixel7, int pixel8, int pixel9) {
-        int red = constrain(Color.red(pixel1) + ADJUSTMENT);
-        int green = constrain(Color.green(pixel1) + ADJUSTMENT);
-        int blue = constrain(Color.blue(pixel1) + ADJUSTMENT);
-        int outPixel = Color.argb(Color.alpha(pixel1), red, green, blue);
-        return outPixel;
+        int outPixel = (pixel1 + pixel2 + -1*pixel3 + pixel4 + -2*pixel5 + -1*pixel6 + pixel7 + pixel8 + -1*pixel9)/9;
+        int red = constrain(Color.red(outPixel));
+        int green = constrain(Color.green(outPixel));
+        int blue = constrain(Color.blue(outPixel));
+        int average = (red+green+blue)/3;
+        return Color.argb(Color.alpha(pixel5), average,average,average);
     }
 
 }
